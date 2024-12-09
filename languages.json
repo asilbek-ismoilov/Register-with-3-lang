@@ -1,0 +1,41 @@
+{
+    "uz": {
+      "start_message": "Tilni tanlang 🇺🇿 | Choose a language 🇺🇸 | Выберите язык 🇷🇺",
+      "selected_language": "Siz O'zbek tilini tanladingiz 🇺🇿",
+      "welcome_message": "Assalomu alaykum! {full_name} Sizni <b>Sifatedu</b> botida ko'rishdan xursandmiz! 🎉\n\nQuyidagi tugmalar yordamida bizning xizmatlarimizni kashf eting:\n1. <b>Biz haqimizda</b> 🗣️ - Bizning kompaniya va xizmatlarimiz haqidagi ma'lumot.\n2. <b>Manzilimiz</b> 📍 - Bizning ofis manzilimiz va xaritasi.\n3. <b>Kurslar</b> 📚 - Taklif etilayotgan kurslarimiz haqida to'liq ma'lumot va ro'yxatdan o'tish.\n4. <b>Savol❓ va Takliflar 📝</b> - Savolingizni yuboring, adminimiz siz bilan bog'lanadi.",
+      "menu": {    
+        "menu_button_1": "Biz haqimizda 👥",
+        "menu_button_2": "Manzilimiz 📍",
+        "menu_button_3": "Kurslar 📚",
+        "menu_button_4": "Savol❓ va Takliflar 📝"
+      },
+      "about_us": "🏢 <b>Biz haqimizda</b>\n\nSifatedu – bu dasturlash va IT sohasida ta'lim beruvchi yetakchi o'quv markazi. Bizning maqsadimiz – sizga eng so'nggi texnologiyalar va dasturlash tillari bo'yicha chuqur bilim va ko'nikmalar berishdir.\n\n🌐 <b>Nimalarni taklif qilamiz:</b>\n- Python dasturlash kurslari\n- Django va boshqa web dasturlash framework-lari\n- Ma'lumotlar tahlili va Data Science\n- IT sohasida malaka oshirish kurslari\n- Xalqaro sertifikat\n\n👨‍🏫 <b>Mentorlarimiz:</b>\n- Muslimbek Baratov – 5 yillik tajriba\n- Madiyorbek Odilov – 4 yillik tajriba\n- Asilbek Ismoilov – 2 yillik tajriba\n- Boboraxim Rustamqulov – 2 yillik tajriba\n- Fotima – 1 yillik tajriba\n\n🔗 <b>Biz bilan bog'lanish:</b>\n📞 Telefon: +998 88 378 08 08\n📞 Telefon: +998 99 750 17 17\n\nSizni o'zimizning o'quv dasturlarimiz bilan tanishtirishni va professional rivojlanishingizda yordam berishni intiqlik bilan <b>kutamiz !</b>",
+      "location": "📌 <b>Bizning manzilimiz: </b>Sifat education\nAloqa ko'chasi, Navoiy, Karmana, Navoiy Region, Uzbekistan, Bizning ofisimiz quyidagi xaritada ko'rsatilgan joyda joylashgan."
+    },
+    "us": {
+      "start_message": "Choose a language 🇺🇸 | Tilni tanlang 🇺🇿 | Выберите язык 🇷🇺",
+      "selected_language": "You selected English 🇺🇸",
+      "welcome_message": "Hello! {full_name}, We are glad to see you on the <b>Sifatedu</b> bot! 🎉\n\nDiscover our services using the buttons below:\n1. <b>About Us</b> 🗣️ - Information about our company and services.\n2. <b>Our Address</b> 📍 - Our office location and map.\n3. <b>Courses</b> 📚 - Complete information about our offered courses and registration.\n4. <b>Questions❓ and Suggestions 📝</b> - Send your question, and our admin will contact you.",
+      "menu": {
+        "menu_button_1": "About Us 👥",
+        "menu_button_2": "Our Address 📍",
+        "menu_button_3": "Courses 📚",
+        "menu_button_4": "Questions❓ and Suggestions 📝"
+      },
+      "about_us": "🏢 <b>About Us</b>\n\nSifatedu is a leading educational center providing training in programming and IT. Our goal is to equip you with in-depth knowledge and skills in the latest technologies and programming languages.\n\n🌐 <b>What we offer:</b>\n- Python programming courses\n- Django and other web development frameworks\n- Data analysis and Data Science\n- IT professional development courses\n- International certifications\n\n👨‍🏫 <b>Our mentors:</b>\n- Muslimbek Baratov – 5 years of experience\n- Madiyorbek Odilov – 4 years of experience\n- Asilbek Ismoilov – 2 years of experience\n- Boboraxim Rustamqulov – 2 years of experience\n- Fotima – 1 year of experience\n\n🔗 <b>Contact us:</b>\n📞 Phone: +998 88 378 08 08\n📞 Phone: +998 99 750 17 17\n\nWe are eagerly <b>waiting</b> to introduce you to our educational programs and assist in your professional development!",
+      "location": "📌 <b>Our address:</b> Sifat education Aloqa Street, Navoi, Karmana, Navoi Region, Uzbekistan. Our office is located at the spot indicated on the map below."
+    },
+    "ru": {
+      "start_message": "Выберите язык 🇷🇺 | Tilni tanlang 🇺🇿 | Choose a language 🇺🇸",
+      "selected_language": "Вы выбрали русский язык 🇷🇺",
+      "welcome_message": "Здравствуйте! {full_name}, Мы рады видеть вас в боте <b>Sifatedu</b>! 🎉\n\nОткройте наши услуги, используя кнопки ниже:\n1. <b>О нас</b> 🗣️ - Информация о нашей компании и услугах.\n2. <b>Наш адрес</b> 📍 - Адрес нашего офиса и карта.\n3. <b>Курсы</b> 📚 - Полная информация о наших курсах и регистрация.\n4. <b>Вопросы❓ и Предложения 📝</b> - Отправьте ваш вопрос, и наш админ свяжется с вами.",
+      "menu": {
+        "menu_button_1": "О нас 👥",
+        "menu_button_2": "Наш адрес 📍",
+        "menu_button_3": "Курсы 📚",
+        "menu_button_4": "Вопросы❓ и Предложения 📝"
+      },
+      "about_us": "🏢 <b>О нас</b>\n\nSifatedu – это ведущий образовательный центр, предоставляющий обучение по программированию и информационным технологиям. Наша цель – предоставить вам глубокие знания и навыки в самых последних технологиях и языках программирования.\n\n🌐 <b>Что мы предлагаем:</b>\n- Курсы по программированию на Python\n- Django и другие веб-разработки\n- Анализ данных и Data Science\n- Курсы по повышению квалификации в IT\n- Международные сертификаты\n\n👨‍🏫 <b>Наши наставники:</b>\n- Muslimbek Baratov – 5 лет опыта\n- Madiyorbek Odilov – 4 года опыта\n- Asilbek Ismoilov – 2 года опыта\n- Boboraxim Rustamqulov – 2 года опыта\n- Fotima – 1 год опыта\n\n🔗 <b>Связаться с нами:</b>\n📞 Телефон: +998 88 378 08 08\n📞 Телефон: +998 99 750 17 17\n\nМы с нетерпением <b>ждем</b>, чтобы познакомить вас с нашими образовательными программами и помочь в вашем профессиональном развитии!",
+      "location": "📌 <b>Наш адрес:</b> Sifat education Улица Алока, Навои, Кармана, Навоийская область, Узбекистан. Наш офис расположен в месте, указанном на карте ниже."
+    }
+}
