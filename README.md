@@ -10,6 +10,7 @@ Linux/Mac
 ```shell
 python3 -m venv venv && source venv/bin/activate && pip3 install -r requirements.txt
 ```
+..
 
 ### 2. Create .env file and copy all variables from .env_example to it and customize your self (if needed)
 
