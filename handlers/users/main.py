@@ -1,6 +1,6 @@
 from loader import dp, bot, ADMINS, db
 from aiogram import F
-from keyboard_buttons.default.menu import menu_button, cours
+from keyboard_buttons.default.menu import menu_button, course_buttons, create_menu_buttons
 from aiogram.types import Message,CallbackQuery, ContentType
 from aiogram.fsm.context import FSMContext
 from keyboard_buttons.default.menu import menu_button
@@ -17,7 +17,6 @@ def load_texts():
 texts = load_texts()
 
 def is_about_us_message(message_text):
-    # Barcha tillar uchun "menu_button_1" qiymatlarini to'plash
     possible_texts = [
         texts.get(lang, {}).get("menu", {}).get("menu_button_1", "")
         for lang in texts
@@ -28,27 +27,20 @@ def is_about_us_message(message_text):
 async def about_us(message: Message, state: FSMContext):
     telegram_id = message.from_user.id
 
-    # Foydalanuvchining ma'lumotlarini olish
     user = db.select_user_by_id(telegram_id=telegram_id)
 
-    # Default tilni o'rnatish (agar foydalanuvchi mavjud bo'lmasa)
-    language = "uz"  # Default til
-
+    language = "uz" 
     if user:
-        language = user[5]  # Foydalanuvchining til maydoni indeks bo'yicha olinmoqda
-        print(language)
+        language = user[5] 
 
-    # Tilga mos matnni olish
     text = texts.get(language, {}).get("about_us", "Tilga mos matn topilmadi.")
 
-    # Matnni yuborish
     await message.answer(text, parse_mode='html')
     await state.clear()
 
 
 
 def is_location_message(message_text):
-    # Barcha tillar uchun "menu_button_2" qiymatlarini to'plash
     possible_texts = [
         texts.get(lang, {}).get("menu", {}).get("menu_button_2", "")
         for lang in texts
@@ -60,7 +52,6 @@ def is_location_message(message_text):
 async def location(message: Message, state: FSMContext):
     telegram_id = message.from_user.id
 
-    # Foydalanuvchining tilini olish
     user = db.select_user_by_id(telegram_id=telegram_id)
     language = "uz"
 
@@ -74,15 +65,43 @@ async def location(message: Message, state: FSMContext):
     await state.clear()
 
 
-@dp.message(F.text == "Kurslar 📚")
+@dp.message(lambda message: message.text in ["Kurslar 📚", "Courses 📚", "Курсы 📚"])
 async def cours_info(message: Message, state: FSMContext): 
-    await message.answer("Menu dan birini tanlang", reply_markup=cours)
+    telegram_id = message.from_user.id
+
+    user = db.select_user_by_id(telegram_id=telegram_id)
+    language = "uz"
+
+    if user:
+        language = user[5]
+    
+    if language == "uz":
+        await message.answer("Menu dan birini tanlang", reply_markup=course_buttons(language))
+    elif language == "ru":
+        await message.answer("Выберите одну из меню", reply_markup=course_buttons(language))
+    elif language == "us":
+        await message.answer("Choose one of the menu", reply_markup=course_buttons(language))
+    
     await state.clear()
 
+# ------------------------------------------------------------------
 
-@dp.message(F.text == "🔙Orqaga")
+@dp.message(lambda message: message.text in ["Orqaga🔙", "Back🔙", "Назад🔙"])
 async def exit(message: Message):
-    await message.answer("Menu", reply_markup=menu_button)
+    telegram_id = message.from_user.id
+
+    user = db.select_user_by_id(telegram_id=telegram_id)
+    language = "uz"
+
+    if user:
+        language = user[5]
+    
+    if language == "uz":
+        await message.answer("Menyu", reply_markup=create_menu_buttons(language))
+    elif language == "ru":
+        await message.answer("Меню", reply_markup=create_menu_buttons(language))
+    elif language == "us":
+        await message.answer("Menu", reply_markup=create_menu_buttons(language))
 
 @dp.message(F.text == "Savol❓ va Takliflar 📝")
 async def admin_message(message: Message, state: FSMContext):
@@ -109,7 +128,7 @@ async def handle_admin_message(message: types.Message, state: FSMContext):
         if username:
             user_identifier = f"@{username}"
         else:
-            user_identifier = f"{first_name} {last_name}".strip()  # Remove any extra spaces
+            user_identifier = f"{first_name} {last_name}".strip() 
     else: 
         user_identifier = f"{user[2]} {user[3]}\nTel: {user[4]}"
 
@@ -119,7 +138,6 @@ async def handle_admin_message(message: types.Message, state: FSMContext):
         try:
             if video_note:
                 print('adfs', message.video_note.file_id)
-                # Echo the video note back to the user
                 await bot.send_video_note(
                     admin_id,
                     video_note.file_id,
@@ -155,7 +173,7 @@ async def handle_admin_message(message: types.Message, state: FSMContext):
             elif message.photo:
                 await bot.send_photo(
                     admin_id,
-                    message.photo[-1].file_id,  # using the highest resolution photo
+                    message.photo[-1].file_id,  
                     caption=f"Foydalanuvchi: {user_identifier}\nRasm xabar",
                     reply_markup=inline_keyboard
                 )

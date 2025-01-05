@@ -7,9 +7,14 @@ from aiogram.types import Message
 from keyboard_buttons.default.menu import tel, menu_button
 from aiogram.types import CallbackQuery
 from keyboard_buttons.inline import inline_val
-from keyboard_buttons.inline.inline_val import reg_courses
+from keyboard_buttons.inline.inline_val import create_inline_buttons
+import json
 
+def load_texts():
+    with open("languages.json", "r", encoding="utf-8") as f:
+        return json.load(f)
 
+texts = load_texts()
 
 # <-------------------------- Python qismi start ----------------------------------------------------------------------------->
 
@@ -17,32 +22,18 @@ from keyboard_buttons.inline.inline_val import reg_courses
 async def show_python_course_details(message: Message,state:FSMContext):
     await state.clear()
     await state.update_data(cours = "Python")
-    python_course_info = """
-📚 *Python Dasturlash Kursi*
-⏳ Davomiyligi: 8 oy
-💰 Narxi: 400,000 UZS oyiga
+    
+    telegram_id = message.from_user.id
 
-🔍 *Nimalarni o'rganasiz?*
-- Python asoslari
-- Ma'lumotlar tuzilmalari
-- OOP (Object-Oriented Programming)
-- Django framework yordamida web dasturlar yaratish
-- Botlar yaratish va boshqa qiziqarli loyihalar
+    user = db.select_user_by_id(telegram_id=telegram_id)
 
-👨‍🏫 *Mentorlar:*
-- Muslimbek Baratov – 5 yillik tajriba
-- Madiyorbek Odilov – 4 yillik tajriba
-- Asilbek Ismoilov – 2 yillik tajriba
-- Boboraxim Rustamqulov – 2 yillik tajriba
-- Fotima – 1 yillik tajriba
+    language = "uz" 
+    if user:
+        language = user[5] 
 
-📌 Batafsil ma'lumot uchun admin bilan bog'laning.
+    python_course_info = texts.get(language, {}).get("python", "Tilga mos matn topilmadi.")
 
-Agar kursga ro'yxatdan o'tmoqchi bo'lsangiz pastdagi tugmani bosing 👇👇👇
-"""
-
-    # Kurs haqida ma'lumot yuborish
-    await message.answer(python_course_info, parse_mode="Markdown",reply_markup=reg_courses)
+    await message.answer(python_course_info, parse_mode="Markdown",reply_markup=create_inline_buttons(language))
 
 # <-------------------------- Python qismi finish ----------------------------------------------------------------------------->
 
@@ -52,28 +43,18 @@ Agar kursga ro'yxatdan o'tmoqchi bo'lsangiz pastdagi tugmani bosing 👇👇👇
 async def show_python_course_details(message: Message,state:FSMContext):
     await state.clear()
     await state.update_data(cours = "SMM")
-    python_course_info = """
-📚 *SMM Dasturlash Kursi*
-⏳ Davomiyligi: 3 oy
-💰 Narxi: 400,000 UZS
 
-🔍 *Nimalarni o'rganasiz?*
-- Ijtimoiy tarmoqlar strategiyasi 
-- Kontent yaratish 
-- Targeting (Maqsadli reklama)
-- Statistikani tahlil qilish
-- Maqsadli auditoriyani aniqlash
+    telegram_id = message.from_user.id
 
-👨‍🏫 *Mentorlar:*
-- Mohinur Muhammadova (1 yillik tajriba)
+    user = db.select_user_by_id(telegram_id=telegram_id)
 
-📌 Batafsil ma'lumot uchun admin bilan bog'laning.
+    language = "uz" 
+    if user:
+        language = user[5] 
 
-Agar kursga ro'yxatdan o'tmoqchi bo'lsangiz pastdagi tugmani bosing 👇👇👇
-"""
+    python_course_info = texts.get(language, {}).get("smm", "Tilga mos matn topilmadi.")
 
-    # Kurs haqida ma'lumot yuborish
-    await message.answer(python_course_info, parse_mode="Markdown", reply_markup=reg_courses)
+    await message.answer(python_course_info, parse_mode="Markdown", reply_markup=create_inline_buttons(language))
 
 
 # <-------------------------- SMM qismi finish ----------------------------------------------------------------------------->
@@ -88,14 +69,23 @@ async def reg_cours(callback: CallbackQuery, state: FSMContext):
     data = await state.get_data()
     cours = data.get("cours")
 
-    # Foydalanuvchini tekshirish
+    language = "uz" 
     if user:
-        # Foydalanuvchi topilgan bo'lsa, telefon raqamni tekshirish
+        language = user[5] 
+
+
+    if user:
         if user[4] == "998999999999":
-            await callback.message.answer("<b>Ismingizni kiriting</b> ✍", parse_mode='html', reply_markup=None)
+            await callback.message.answer(texts.get(language, {}).get("name", "Tilga mos matn topilmadi."), parse_mode='html', reply_markup=None)
             await state.set_state(SingUp.name)
         else:
-            f_text = f"<blockquote>Ma'lumotlaringiz to'g'rimi tekshiring ❗️❗️❗️</blockquote>\nKurs: {cours} \n<b>Ism-Familiya</b>: {user[2]} {user[3]} \n<b>Tel</b>: {user[4]}"
+            if language == "uz":
+                f_text = f"<blockquote>Ma'lumotlaringiz to'g'rimi tekshiring ❗️❗️❗️</blockquote>\nKurs: {cours} \n<b>Ism-Familiya</b>: {user[2]} {user[3]} \n<b>Tel</b>: {user[4]}"
+            elif language == "ru":
+                f_text = f"<blockquote>Проверьте правильность ваших данных ❗️❗️❗️</blockquote>\nКурс: {cours} \n<b>Фамилия и имя</b>: {user[2]} {user[3]} \n<b>Телефон</b>: {user[4]}"
+            elif language == "us": 
+                f_text = f"<blockquote>Check if your information is correct ❗️❗️❗️</blockquote>\nCourse: {cours} \n<b>Full Name</b>: {user[2]} {user[3]} \n<b>Phone</b>: {user[4]}"
+            
             await callback.message.answer(f_text, reply_markup=inline_val.confirmation, parse_mode='html')
 
 # name
