@@ -2,7 +2,6 @@ from aiogram.types import Message
 from loader import dp, db
 from aiogram.filters import Command
 from aiogram.fsm.context import FSMContext
-
 import json
 
 def load_texts():
@@ -13,9 +12,7 @@ texts = load_texts()
 
 @dp.message(Command("about"))
 async def about_commands(message: Message, state: FSMContext):
-    telegram_id = message.from_user.id
-
-    user = db.select_user_by_id(telegram_id=telegram_id)
+    user = db.select_user_by_id(message.from_user.id)
 
     language = "uz" 
     if user:

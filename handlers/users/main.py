@@ -1,6 +1,6 @@
 from loader import dp, bot, ADMINS, db
 from aiogram import F
-from keyboard_buttons.default.menu import menu_button, course_buttons, create_menu_buttons
+from keyboard_buttons.default.menu import menu_button, course_buttons, create_menu_buttons, back_button
 from aiogram.types import Message,CallbackQuery, ContentType
 from aiogram.fsm.context import FSMContext
 from keyboard_buttons.default.menu import menu_button
@@ -25,9 +25,7 @@ def is_about_us_message(message_text):
 
 @dp.message(lambda message: is_about_us_message(message.text))
 async def about_us(message: Message, state: FSMContext):
-    telegram_id = message.from_user.id
-
-    user = db.select_user_by_id(telegram_id=telegram_id)
+    user = db.select_user_by_id(message.from_user.id)
 
     language = "uz" 
     if user:
@@ -50,9 +48,7 @@ def is_location_message(message_text):
 
 @dp.message(lambda message: is_location_message(message.text))
 async def location(message: Message, state: FSMContext):
-    telegram_id = message.from_user.id
-
-    user = db.select_user_by_id(telegram_id=telegram_id)
+    user = db.select_user_by_id(message.from_user.id)
     language = "uz"
 
     if user:
@@ -67,9 +63,7 @@ async def location(message: Message, state: FSMContext):
 
 @dp.message(lambda message: message.text in ["Kurslar 📚", "Courses 📚", "Курсы 📚"])
 async def cours_info(message: Message, state: FSMContext): 
-    telegram_id = message.from_user.id
-
-    user = db.select_user_by_id(telegram_id=telegram_id)
+    user = db.select_user_by_id(message.from_user.id)
     language = "uz"
 
     if user:
@@ -88,9 +82,7 @@ async def cours_info(message: Message, state: FSMContext):
 
 @dp.message(lambda message: message.text in ["Orqaga🔙", "Back🔙", "Назад🔙"])
 async def exit(message: Message):
-    telegram_id = message.from_user.id
-
-    user = db.select_user_by_id(telegram_id=telegram_id)
+    user = db.select_user_by_id(message.from_user.id)
     language = "uz"
 
     if user:
@@ -103,9 +95,30 @@ async def exit(message: Message):
     elif language == "us":
         await message.answer("Menu", reply_markup=create_menu_buttons(language))
 
-@dp.message(F.text == "Savol❓ va Takliflar 📝")
+def admin_send_message(message_text):
+    possible_texts = [
+        texts.get(lang, {}).get("menu", {}).get("menu_button_4", "")
+        for lang in texts
+    ]
+    return message_text in possible_texts
+
+@dp.message(lambda message: admin_send_message(message.text))
 async def admin_message(message: Message, state: FSMContext):
-    await message.answer("Admin uchun xabar yuboring:",reply_markup=menu_button)
+
+    user = db.select_user_by_id(message.from_user.id)
+    language = "uz"
+
+    if user:
+        language = user[5]
+        
+    if language == "uz":
+        text = "Admin uchun xabar yuboring:"
+    elif language == "ru":
+        text = "Отправьте сообщение админу:"
+    elif language == "us":
+        text = "Send a message to the admin:"
+
+    await message.answer(text,reply_markup=back_button(language))
     await state.set_state(AdminStates.waiting_for_admin_message)
 
 @dp.message(AdminStates.waiting_for_admin_message, F.content_type.in_([
@@ -122,7 +135,10 @@ async def handle_admin_message(message: types.Message, state: FSMContext):
     last_name = message.from_user.last_name or ""  # Some users may not have a last name
     telegram_id = message.from_user.id
     user = db.select_user(telegram_id=telegram_id)
+    language = "uz"
 
+    if user:
+        language = user[5]
 
     if user[4] == "998999999999":
         if username:
@@ -130,14 +146,23 @@ async def handle_admin_message(message: types.Message, state: FSMContext):
         else:
             user_identifier = f"{first_name} {last_name}".strip() 
     else: 
-        user_identifier = f"{user[2]} {user[3]}\nTel: {user[4]}"
+        if language == "uz":
+            text = "Telefon"
+        elif language == "ru":
+            text = "Телефон"
+        elif language == "us":
+            text = "Phone"
+
+        user_identifier = f"{user[2]} {user[3]}\n{text}: {user[4]}"
+
+    user_text = texts.get(language, {}).get("text_admin", "Matn topilmadi.")
+    user_mes = texts.get(language, {}).get("text_m", "Matn topilmadi.")
 
     video_note = message.video_note
     inline_keyboard = create_inline_keyboard(user_id)
     for admin_id in ADMINS:
         try:
             if video_note:
-                print('adfs', message.video_note.file_id)
                 await bot.send_video_note(
                     admin_id,
                     video_note.file_id,
@@ -146,42 +171,42 @@ async def handle_admin_message(message: types.Message, state: FSMContext):
             elif message.text:
                 await bot.send_message(
                     admin_id,
-                    f"Foydalanuvchi: {user_identifier}\nXabar:\n{message.text}",
+                    f"{user_text} {user_identifier}\n{user_mes}:\n{message.text}",
                     reply_markup=inline_keyboard
                 )
             elif message.audio:
                 await bot.send_audio(
                     admin_id,
                     message.audio.file_id,
-                    caption=f"Foydalanuvchi: {user_identifier}\nAudio xabar",
+                    caption=f"{user_text} {user_identifier}\nAudio {user_mes}",
                     reply_markup=inline_keyboard
                 )
             elif message.voice:
                 await bot.send_voice(
                     admin_id,
                     message.voice.file_id,
-                    caption=f"Foydalanuvchi: {user_identifier}\nVoice xabar",
+                    caption=f"{user_text} {user_identifier}\nVoice {user_mes}",
                     reply_markup=inline_keyboard
                 )
             elif message.video:
                 await bot.send_video(
                     admin_id,
                     message.video.file_id,
-                    caption=f"Foydalanuvchi: {user_identifier}\nVideo xabar",
+                    caption=f"{user_text} {user_identifier}\nVideo {user_mes}",
                     reply_markup=inline_keyboard
                 )
             elif message.photo:
                 await bot.send_photo(
                     admin_id,
                     message.photo[-1].file_id,  
-                    caption=f"Foydalanuvchi: {user_identifier}\nRasm xabar",
+                    caption=f"{user_text} {user_identifier}\nPhoto {user_mes}",
                     reply_markup=inline_keyboard
                 )
             elif message.animation:
                 await bot.send_animation(
                     admin_id,
                     message.animation.file_id,
-                    caption=f"Foydalanuvchi: {user_identifier}\nGIF xabar",
+                    caption=f"{user_text} {user_identifier}\nGIF {user_mes}",
                     reply_markup=inline_keyboard
                 )
             elif message.sticker:
@@ -201,7 +226,7 @@ async def handle_admin_message(message: types.Message, state: FSMContext):
                 await bot.send_document(
                     admin_id,
                     message.document.file_id,
-                    caption=f"Foydalanuvchi: {user_identifier}\nHujjat xabar",
+                    caption=f"{user_text} {user_identifier}\nDocument {user_mes}",
 
                     reply_markup=inline_keyboard
                 )
@@ -223,6 +248,9 @@ async def handle_admin_message(message: types.Message, state: FSMContext):
 @dp.callback_query(lambda c: c.data.startswith('reply:'))
 async def process_reply_callback(callback_query: CallbackQuery, state: FSMContext):
     user_id = int(callback_query.data.split(":")[1])
+    print(user_id)
+    telegram_id = callback_query.from_user.id
+    print(telegram_id)
     await callback_query.message.answer("Javobingizni yozing. Sizning javobingiz foydalanuvchiga yuboriladi.")
     await state.update_data(reply_user_id=user_id)
     await state.set_state(AdminStates.waiting_for_reply_message)

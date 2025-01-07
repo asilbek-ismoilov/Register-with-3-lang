@@ -19,9 +19,6 @@ def create_menu_buttons(language):
     )
     return menu_buttons
 
-menu_button_uz = create_menu_buttons("uz")
-menu_button_us = create_menu_buttons("us")
-menu_button_ru = create_menu_buttons("ru")
 
 def course_buttons(language):
     button_texts = texts[language]["menu"]
@@ -35,28 +32,35 @@ def course_buttons(language):
     )
     return course_buttons
 
-course_button_uz = course_buttons("uz")
-course_button_us = course_buttons("us")
-course_button_ru = course_buttons("ru")
+def tel_buttons(language):
+    button_texts = texts[language]["menu"]
 
-tel = ReplyKeyboardMarkup(
-    keyboard=[
-        [KeyboardButton(text='Telefon raqam yuborish ☎️', request_contact=True)]
-    ],
-    resize_keyboard=True
-)
+    tel = ReplyKeyboardMarkup(
+        keyboard=[
+            [KeyboardButton(text=button_texts["tel"], request_contact=True)]
+        ],
+        resize_keyboard=True,
+        input_field_placeholder=button_texts["tel_text"]
+    )
+
+    return tel
+
+def back_button(language):
+    button_texts = texts[language]["menu"]
+
+    back_button = ReplyKeyboardMarkup(
+        keyboard=[
+            [KeyboardButton(text=button_texts["back"]),]
+        ],
+        resize_keyboard=True,
+    )
+
+    return back_button
 
 menu_button = ReplyKeyboardMarkup(
     keyboard=[
         [KeyboardButton(text="Biz haqimizda 👥"),KeyboardButton(text="Manzilimiz 📍")],
         [KeyboardButton(text="Kurslar 📚"), KeyboardButton(text="Savol❓ va Takliflar 📝")]
-    ],
-    resize_keyboard=True,
-)
-
-back_about = ReplyKeyboardMarkup(
-    keyboard=[
-        [KeyboardButton(text="🔙Orqaga"),]
     ],
     resize_keyboard=True,
 )

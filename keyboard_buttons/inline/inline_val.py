@@ -28,12 +28,12 @@ def create_inline_buttons(language):
     )
     return inline_keyboard
 
-inline_button_uz = create_inline_buttons("uz")
-inline_button_us = create_inline_buttons("us")
-inline_button_ru = create_inline_buttons("ru")
+def confirmation_buttons(language):
+    button_text = texts[language]["menu"]
 
-confirmation = InlineKeyboardMarkup(
-    inline_keyboard=[
-        [InlineKeyboardButton(text= "Bekor qilish ❌", callback_data="cancel"), InlineKeyboardButton(text= "O'zgartirish 📝", callback_data="change"), InlineKeyboardButton(text= "Tasdiqlash ✅", callback_data="right")]
-    ]
-)
+    confirmation = InlineKeyboardMarkup(
+        inline_keyboard=[
+            [InlineKeyboardButton(text=button_text["cancel"], callback_data="cancel"), InlineKeyboardButton(text=button_text["change"], callback_data="change"), InlineKeyboardButton(text=button_text["right"], callback_data="right")]
+        ]
+    )
+    return confirmation
