@@ -119,6 +119,9 @@ celerybeat.pid
 # SageMath parsed files
 *.sage.py
 
+# picture papkasini yashirish
+picture/
+
 # Environments
 .env
 .venv

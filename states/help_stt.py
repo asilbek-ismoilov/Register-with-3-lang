@@ -16,12 +16,23 @@ class AdminStates(StatesGroup):
     waiting_for_reply_message = State()
 
 # Function to create inline keyboard for reply
-def create_inline_keyboard(user_id):
+def create_inline_keyboard(lange, user_id):
     keyboard_builder = InlineKeyboardBuilder()
-    keyboard_builder.button(
-        text="Javob berish",
-        callback_data=f"reply:{user_id}"
-    )
 
+    if lange == "uz":
+        keyboard_builder.button(
+            text="Javob berish",
+            callback_data=f"reply:{user_id}"
+        )
+    elif lange == "ru":
+        keyboard_builder.button(
+            text="Отвечать",
+            callback_data=f"reply:{user_id}"
+        )
+    elif lange == "us":
+        keyboard_builder.button(
+            text="Reply",
+            callback_data=f"reply:{user_id}"
+        )
 
     return keyboard_builder.as_markup()

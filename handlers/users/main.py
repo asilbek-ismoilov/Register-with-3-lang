@@ -1,9 +1,8 @@
 from loader import dp, bot, ADMINS, db
 from aiogram import F
-from keyboard_buttons.default.menu import menu_button, course_buttons, create_menu_buttons, back_button
+from keyboard_buttons.default.menu import course_buttons, create_menu_buttons, back_button
 from aiogram.types import Message,CallbackQuery, ContentType
 from aiogram.fsm.context import FSMContext
-from keyboard_buttons.default.menu import menu_button
 from states.help_stt import AdminStates, AdminStates, create_inline_keyboard
 from aiogram import types
 import logging
@@ -159,7 +158,7 @@ async def handle_admin_message(message: types.Message, state: FSMContext):
     user_mes = texts.get(language, {}).get("text_m", "Matn topilmadi.")
 
     video_note = message.video_note
-    inline_keyboard = create_inline_keyboard(user_id)
+    inline_keyboard = create_inline_keyboard(language, user_id)
     for admin_id in ADMINS:
         try:
             if video_note:
@@ -242,16 +241,20 @@ async def handle_admin_message(message: types.Message, state: FSMContext):
             logging.error(f"Error sending message to admin {admin_id}: {e}")
 
     await state.clear()
-    await bot.send_message(user_id, "Admin sizga javob berishi mumkin.",reply_markup=menu_button)
+    await bot.send_message(user_id, texts.get(language, {}).get("admin_answer", "Matn topilmadi."), reply_markup=create_menu_buttons(language))
 
 # Callback query handler for the reply button
 @dp.callback_query(lambda c: c.data.startswith('reply:'))
 async def process_reply_callback(callback_query: CallbackQuery, state: FSMContext):
     user_id = int(callback_query.data.split(":")[1])
-    print(user_id)
-    telegram_id = callback_query.from_user.id
-    print(telegram_id)
-    await callback_query.message.answer("Javobingizni yozing. Sizning javobingiz foydalanuvchiga yuboriladi.")
+
+    user = db.select_user(telegram_id=callback_query.from_user.id)
+    language = "uz"
+
+    if user:
+        language = user[5]
+
+    await callback_query.message.answer(texts.get(language, {}).get("text_answer", "Matn topilmadi."))
     await state.update_data(reply_user_id=user_id)
     await state.set_state(AdminStates.waiting_for_reply_message)
     await callback_query.answer()
@@ -262,25 +265,39 @@ async def handle_admin_reply(message: Message, state: FSMContext):
     data = await state.get_data()
     original_user_id = data.get('reply_user_id')
 
+    user = db.select_user_by_id(message.from_user.id)
+
+    language = "uz"
+
+    if user:
+        language = user[5]
+
+    if language == "uz":
+        text = "Admin javobi:"
+    elif language == "ru":
+        text = "Ответ администратора:"
+    elif language == "us":
+        text = "Admin's response:"
+
     if original_user_id:
         try:
             if message.text:
-                await bot.send_message(original_user_id, f"Admin javobi:\n{message.text}", reply_markup=menu_button)
+                await bot.send_message(original_user_id, f"{text}\n{message.text}", reply_markup=create_menu_buttons(language))
             
             elif message.voice:
-                await bot.send_voice(original_user_id, message.voice.file_id, reply_markup=menu_button)
+                await bot.send_voice(original_user_id, message.voice.file_id, reply_markup=create_menu_buttons(language))
 
             elif message.video_note:
-                await bot.send_video_note(original_user_id, message.video_note.file_id, reply_markup=menu_button)
+                await bot.send_video_note(original_user_id, message.video_note.file_id, reply_markup=create_menu_buttons(language))
 
             elif message.audio:
-                await bot.send_audio(original_user_id, message.audio.file_id, reply_markup=menu_button)
+                await bot.send_audio(original_user_id, message.audio.file_id, reply_markup=create_menu_buttons(language))
             
             elif message.sticker:
-                await bot.send_sticker(original_user_id, message.sticker.file_id, reply_markup=menu_button)
+                await bot.send_sticker(original_user_id, message.sticker.file_id, reply_markup=create_menu_buttons(language))
             
             elif message.video:
-                await bot.send_video(original_user_id, message.video.file_id, reply_markup=menu_button)
+                await bot.send_video(original_user_id, message.video.file_id, reply_markup=create_menu_buttons(language))
 
             await state.clear()  # Clear state after sending the reply
         except Exception as e:

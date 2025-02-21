@@ -3,6 +3,8 @@ from loader import dp, db
 from aiogram.filters import Command
 from aiogram.fsm.context import FSMContext
 import json
+from aiogram.types import ReplyKeyboardRemove
+
 
 def load_texts():
     with open("languages.json", "r", encoding="utf-8") as f:
@@ -20,5 +22,5 @@ async def about_commands(message: Message, state: FSMContext):
 
     text = texts.get(language, {}).get("about", "Tilga mos matn topilmadi.")
 
-    await message.answer(text, parse_mode='html')
+    await message.answer(text, parse_mode='html', reply_markup=ReplyKeyboardRemove())
     await state.clear()

@@ -4,7 +4,7 @@ import re
 from states.register_stt import SingUp
 from aiogram.fsm.context import FSMContext
 from aiogram.types import Message
-from keyboard_buttons.default.menu import tel_buttons, create_menu_buttons, menu_button
+from keyboard_buttons.default.menu import tel_buttons, create_menu_buttons, course_buttons
 from aiogram.types import CallbackQuery
 from keyboard_buttons.inline.inline_val import create_inline_buttons, confirmation_buttons
 import json
@@ -127,7 +127,6 @@ async def surname(message:Message, state:FSMContext):
     if user:
         language = user[5] 
 
-
     if surname.isalpha():
         await state.update_data(surname = surname)
         await message.answer(texts.get(language, {}).get("phone", "Tilga mos matn topilmadi."), reply_markup=tel_buttons(language), parse_mode='html')
@@ -172,11 +171,18 @@ async def phone_number(message: Message, state: FSMContext):
     uzbek_phone_pattern = r"^(\+998|998)[0-9]{9}$"
     if re.match(uzbek_phone_pattern, phone):
         await state.update_data(phone=phone)
-        f_text = f"<blockquote>Ma'lumotlaringiz to'g'rimi tekshiring ❗️❗️❗️</blockquote>\nKurs: {cours} \n<b>Ism-Familiya</b>: {name} {surname} \n<b>Tel</b>: {phone}"
+        if language == "uz":
+            f_text = f"<blockquote>Ma'lumotlaringiz to'g'rimi tekshiring ❗️❗️❗️</blockquote>\nKurs: {cours} \n<b>Ism-Familiya</b>: {name} {surname} \n<b>Tel</b>: {phone}"
+        elif language == "ru":
+            f_text = f"<blockquote>Проверьте, верны ли ваши данные ❗️❗️❗️</blockquote>\nКурс: {cours} \n<b>Имя-Фамилия</b>: {name} {surname} \n<b>Тел</b>: {phone}"
+        elif language == "us": 
+            f_text = f"<blockquote>Check if your information is correct ❗️❗️❗️</blockquote>\nCourse: {cours} \n<b>Name-Surname</b>: {name} {surname} \n<b>Phone</b>: {phone}"
+
+        
         await message.answer(f_text, reply_markup=confirmation_buttons(language) , parse_mode='html') 
     else:
         await message.delete()
-        await message.answer(text="Telefon raqamni to'g'ri kiriting ❗️ \n998 ham kiriting ❗️", parse_mode='html')
+        await message.answer(texts.get(language, {}).get("check_phone", "Tilga mos matn topilmadi."), parse_mode='html')
 
 
 
@@ -199,12 +205,16 @@ async def cancel(callback:CallbackQuery,state:FSMContext):
     await state.clear()
     await callback.message.delete()
 
-    telegram_id = callback.message.from_user.id
-    user = db.select_user_by_id(telegram_id=telegram_id)
+    print(callback.from_user.id)
+    user = db.select_user_by_id(callback.from_user.id)
+    print(user)
 
     language = "uz" 
+
     if user:
         language = user[5] 
+
+    print(language)
 
     if language == "uz":
         text = "<b>Menyu</b>"
@@ -213,7 +223,7 @@ async def cancel(callback:CallbackQuery,state:FSMContext):
     elif language == "us":
         text = "<b>Menu</b>"
 
-    await callback.message.answer(text, parse_mode='html', reply_markup=menu_button)
+    await callback.message.answer(text, parse_mode='html', reply_markup=create_menu_buttons(language))
 
 @dp.callback_query(F.data == "change")
 async def edit(callback:CallbackQuery,state:FSMContext):
@@ -227,7 +237,7 @@ async def edit(callback:CallbackQuery,state:FSMContext):
     if user:
         language = user[5] 
 
-    await callback.message.answer(texts.get(language, {}).get("again", "Tilga mos matn topilmadi."), parse_mode='html', reply_markup=None)
+    await callback.message.answer(texts.get(language, {}).get("again", "Tilga mos matn topilmadi."), parse_mode='html', reply_markup=course_buttons(language))
     await state.set_state(SingUp.name)
 
 
@@ -240,8 +250,7 @@ async def right(callback:CallbackQuery, state:FSMContext):
     if user:
         language = user[5] 
 
-
-    await callback.message.answer("Siz muvaffaqiyatli ro'yxatdan o'tingiz 🎉, tez orada admin siz bilan bog'lanadi ✅\n<b>Menu</b>", reply_markup=create_menu_buttons(language) , parse_mode='html')
+    await callback.message.answer(texts.get(language, {}).get("register_text", "Tilga mos matn topilmadi."), reply_markup=create_menu_buttons(language) , parse_mode='html')
     await callback.message.delete()
 
     data = await state.get_data()
@@ -254,12 +263,14 @@ async def right(callback:CallbackQuery, state:FSMContext):
             phone = data.get("phone")
 
             text = f"Yangi o'quvchi 👤\n<blockquote>Kurs: {cours} \n<b>Ism-Familiya</b>: {name} {surname} \n<b>Tel</b>: {phone}</blockquote>"
-            await bot.send_message(ADMINS[0], text, parse_mode='html')
+            for admin in ADMINS:
+                await bot.send_message(admin, text, parse_mode='html')
 
             full_name = f"{name} {surname}"
             db.add_user(telegram_id=callback.from_user.id, full_name=full_name, name=name, surname=surname, phone=phone)
         else:
             text = f"Yangi o'quvchi 👤\n<blockquote>Kurs: {cours} \n<b>Ism-Familiya</b>: {user[2]} {user[3]} \n<b>Tel</b>: {user[4]}</blockquote>"
-            await bot.send_message(ADMINS[0], text, parse_mode='html')
+            for admin in ADMINS:
+                await bot.send_message(admin, text, parse_mode='html')
 
     await state.clear()

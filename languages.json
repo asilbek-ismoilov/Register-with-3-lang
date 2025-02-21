@@ -16,7 +16,7 @@
         "tel" : "Telefon raqam yuborish ☎️",
         "tel_text" : "Telefon raqamingizni yozing ✍"
       },  
-      "about_us": "🏢 <b>Biz haqimizda</b>\n\nSifatedu – bu dasturlash va IT sohasida ta'lim beruvchi yetakchi o'quv markazi. Bizning maqsadimiz – sizga eng so'nggi texnologiyalar va dasturlash tillari bo'yicha chuqur bilim va ko'nikmalar berishdir.\n\n🌐 <b>Nimalarni taklif qilamiz:</b>\n- Python dasturlash kurslari\n- Django va boshqa web dasturlash framework-lari\n- Ma'lumotlar tahlili va Data Science\n- IT sohasida malaka oshirish kurslari\n- Xalqaro sertifikat\n\n👨‍🏫 <b>Mentorlarimiz:</b>\n- Muslimbek Baratov – 5 yillik tajriba\n- Madiyorbek Odilov – 4 yillik tajriba\n- Asilbek Ismoilov – 2 yillik tajriba\n- Boboraxim Rustamqulov – 2 yillik tajriba\n- Fotima – 1 yillik tajriba\n\n🔗 <b>Biz bilan bog'lanish:</b>\n📞 Telefon: +998 88 378 08 08\n📞 Telefon: +998 99 750 17 17\n\nSizni o'zimizning o'quv dasturlarimiz bilan tanishtirishni va professional rivojlanishingizda yordam berishni intiqlik bilan <b>kutamiz !</b>",
+      "about_us": "🏢 <b>Biz haqimizda</b>\n\nSifatedu – bu dasturlash va IT sohasida ta'lim beruvchi yetakchi o'quv markazi. Bizning maqsadimiz – sizga eng so'nggi texnologiyalar va dasturlash tillari bo'yicha chuqur bilim va ko'nikmalar berishdir.\n\n🌐 <b>Nimalarni taklif qilamiz:</b>\n- Python dasturlash kurslari\n- Django va boshqa web dasturlash framework-lari\n- Ma'lumotlar tahlili va Data Science\n- IT sohasida malaka oshirish kurslari\n- Xalqaro sertifikat\n\n👨‍🏫 <b>Mentorlarimiz:</b>\n- Madiyorbek Odilov – 4 yillik tajriba\n- Asilbek Ismoilov – 2 yillik tajriba\n- Boboraxim Rustamqulov – 2 yillik tajriba\n- Fotima – 1 yillik tajriba\n\n🔗 <b>Biz bilan bog'lanish:</b>\n📞 Telefon: +998 88 378 08 08\n📞 Telefon: +998 99 750 17 17\n\nSizni o'zimizning o'quv dasturlarimiz bilan tanishtirishni va professional rivojlanishingizda yordam berishni intiqlik bilan <b>kutamiz !</b>",
       "location": "📌 <b>Bizning manzilimiz: </b>Sifat education\nAloqa ko'chasi, Navoiy, Karmana, Navoiy Region, Uzbekistan, Bizning ofisimiz quyidagi xaritada ko'rsatilgan joyda joylashgan.",
       "help" : "🔥 Buyruqlar \nBotdan foydalanish uchun ... \n /about - Bot haqida \n\nAdmin bilan bog'lanmoqchi bo'lsangiz menu dan \"Savol❓ va Takliflar 📝\" tugmasini tanlang!",
       "about" : "Sifatedu boti - bot, Sifat o'quv markazi haqida ma'lumotni oson va tezkor tarzda olish hamda ro'yxatdan o'tish uchun yordamchingiz! Ushbu bot qulay bo'lib, kurslar haqida ma'lumot beradi va barcha ma'lumotlarni xavfsiz saqlaydi.",
@@ -25,7 +25,7 @@
         "help" : "Yordam",
         "about" : "Biz haqimizda"
       },
-      "python": "📚 *Python Dasturlash Kursi*\n⏳ Davomiyligi: 8 oy\n💰 Narxi: 400,000 UZS oyiga\n\n🔍 *Nimalarni o'rganasiz?*\n- Python asoslari\n- Ma'lumotlar tuzilmalari\n- OOP (Object-Oriented Programming)\n- Django framework yordamida web dasturlar yaratish\n- Botlar yaratish va boshqa qiziqarli loyihalar\n\n👨‍🏫 *Mentorlar:*\n- Muslimbek Baratov – 5 yillik tajriba\n- Madiyorbek Odilov – 4 yillik tajriba\n- Asilbek Ismoilov – 2 yillik tajriba\n- Boboraxim Rustamqulov – 2 yillik tajriba\n- Fotima – 1 yillik tajriba\n\n📌 Batafsil ma'lumot uchun admin bilan bog'laning.\n\nAgar kursga ro'yxatdan o'tmoqchi bo'lsangiz pastdagi tugmani bosing 👇👇👇",
+      "python": "📚 *Python Dasturlash Kursi*\n⏳ Davomiyligi: 8 oy\n💰 Narxi: 400,000 UZS oyiga\n\n🔍 *Nimalarni o'rganasiz?*\n- Python asoslari\n- Ma'lumotlar tuzilmalari\n- OOP (Object-Oriented Programming)\n- Django framework yordamida web dasturlar yaratish\n- Botlar yaratish va boshqa qiziqarli loyihalar\n\n👨‍🏫 *Mentorlar:*\n- Madiyorbek Odilov – 4 yillik tajriba\n- Asilbek Ismoilov – 2 yillik tajriba\n- Boboraxim Rustamqulov – 2 yillik tajriba\n- Fotima – 1 yillik tajriba\n\n📌 Batafsil ma'lumot uchun admin bilan bog'laning.\n\nAgar kursga ro'yxatdan o'tmoqchi bo'lsangiz pastdagi tugmani bosing 👇👇👇",
       "smm" : "📚 *SMM Dasturlash Kursi*\n⏳ Davomiyligi: 3 oy\n💰 Narxi: 400,000 UZS\n\n🔍 *Nimalarni o'rganasiz?*\n- Ijtimoiy tarmoqlar strategiyasi\n- Kontent yaratish\n- Targeting (Maqsadli reklama)\n- Statistikani tahlil qilish\n- Maqsadli auditoriyani aniqlash\n\n👨‍🏫 *Mentorlar:*\n- Mohinur Muhammadova (1 yillik tajriba)\n\n📌 Batafsil ma'lumot uchun admin bilan bog'laning.\n\nAgar kursga ro'yxatdan o'tmoqchi bo'lsangiz, pastdagi tugmani bosing 👇👇👇",
       "name" : "<b>Ismingizni kiriting</b> ✍",
       "check_name" : "<b>Ismingizni to'g'ri kiriting ❗️</b>",
@@ -33,13 +33,16 @@
       "check_surname" : "<b>Familiyangizni to'g'ri kiriting ❗️</b>",
       "phone" : "☎️<b>Telefon raqamingizni kiriting</b> ✍",
       "check_phone" : "<b>Telefon raqamingizni to'g'ri kiriting ❗️</b>",
-      "again" : "Qayta ro'yxatdan o'tish\n<b>Ismingizni kiriting</b> ✍ ....",
+      "again" : "Qayta ro'yxatdan o'tish, kerakli \nbuttonga bosing 👇👇👇",
       "text_admin" : "Foydalanuvchi:",
       "text_m" : "xabar",
-      "text_answer" : "Javobingizni yozing. Sizning javobingiz foydalanuvchiga yuboriladi."
+      "text_answer" : "Javobingizni yozing. Sizning javobingiz foydalanuvchiga yuboriladi.",
+      "register_text" : "Siz muvaffaqiyatli ro'yxatdan o'tingiz 🎉, tez orada admin siz bilan bog'lanadi ✅\n<b>Menu</b>",
+      "admin_answer" : "Admin javobini kuting !"
+
+    
+      
     },
-
-
     "us": {
       "selected_language": "You selected English 🇺🇸",
       "welcome_message": "Hello! {full_name}, We are glad to see you on the <b>Sifatedu</b> bot! 🎉\n\nDiscover our services using the buttons below:\n1. <b>About Us</b> 🗣️ - Information about our company and services.\n2. <b>Our Address</b> 📍 - Our office location and map.\n3. <b>Courses</b> 📚 - Complete information about our offered courses and registration.\n4. <b>Questions❓ and Suggestions 📝</b> - Send your question, and our admin will contact you.",
@@ -57,7 +60,7 @@
         "tel" : "Send phone number ☎️",
         "tel_text" : "Enter your phone number ✍"
       },
-      "about_us": "🏢 <b>About Us</b>\n\nSifatedu is a leading educational center providing training in programming and IT. Our goal is to equip you with in-depth knowledge and skills in the latest technologies and programming languages.\n\n🌐 <b>What we offer:</b>\n- Python programming courses\n- Django and other web development frameworks\n- Data analysis and Data Science\n- IT professional development courses\n- International certifications\n\n👨‍🏫 <b>Our mentors:</b>\n- Muslimbek Baratov – 5 years of experience\n- Madiyorbek Odilov – 4 years of experience\n- Asilbek Ismoilov – 2 years of experience\n- Boboraxim Rustamqulov – 2 years of experience\n- Fotima – 1 year of experience\n\n🔗 <b>Contact us:</b>\n📞 Phone: +998 88 378 08 08\n📞 Phone: +998 99 750 17 17\n\nWe are eagerly <b>waiting</b> to introduce you to our educational programs and assist in your professional development!",
+      "about_us": "🏢 <b>About Us</b>\n\nSifatedu is a leading educational center providing training in programming and IT. Our goal is to equip you with in-depth knowledge and skills in the latest technologies and programming languages.\n\n🌐 <b>What we offer:</b>\n- Python programming courses\n- Django and other web development frameworks\n- Data analysis and Data Science\n- IT professional development courses\n- International certifications\n\n👨‍🏫 <b>Our mentors:</b>\n- Madiyorbek Odilov – 4 years of experience\n- Asilbek Ismoilov – 2 years of experience\n- Boboraxim Rustamqulov – 2 years of experience\n- Fotima – 1 year of experience\n\n🔗 <b>Contact us:</b>\n📞 Phone: +998 88 378 08 08\n📞 Phone: +998 99 750 17 17\n\nWe are eagerly <b>waiting</b> to introduce you to our educational programs and assist in your professional development!",
       "location": "📌 <b>Our address:</b> Sifat education Aloqa Street, Navoi, Karmana, Navoi Region, Uzbekistan. Our office is located at the spot indicated on the map below.",
       "help" : "🔥 Commands \nTo use the bot ... \n /about - About the bot \n\nIf you want to contact the admin, select the \"Questions❓ and Suggestions 📝\" button from the menu!",
       "about" : "Sifatedu bot - your assistant for quickly and easily obtaining information about Sifat Educational Center and registering! This bot is convenient, provides information about courses, and securely stores all data.",
@@ -66,18 +69,21 @@
         "help" : "Help",
         "about" : "About us"
       },
-      "python" : "📚 *Python Programming Course*\n⏳ Duration: 8 months\n💰 Price: 400,000 UZS per month\n\n🔍 *What will you learn?*\n- Python basics\n- Data structures\n- OOP (Object-Oriented Programming)\n- Building web applications using Django framework\n- Creating bots and other exciting projects\n\n👨‍🏫 *Instructors:*\n- Muslimbek Baratov – 5 years of experience\n- Madiyorbek Odilov – 4 years of experience\n- Asilbek Ismoilov – 2 years of experience\n- Boboraxim Rustamqulov – 2 years of experience\n- Fotima – 1 year of experience\n\n📌 For more details, contact the admin.\n\nIf you want to register for the course, click the button below 👇👇👇",
-      "smm" : "📚 *SMM Programming Course*\n⏳ Duration: 3 months\n💰 Price: 400,000 UZS\n\n🔍 *What will you learn?*\n- Social media strategy\n- Content creation\n- Targeting (Targeted advertising)\n- Analyzing statistics\n- Identifying the target audience\n\n👨‍🏫 *Instructors:*\n- Mohinur Muhammadova (1 year of experience)\n\n📌 For more details, contact the admin.\n\nIf you want to register for the course, click the button below 👇👇👇",
+      "python" : "📚 *Python Programming Course*\n⏳ Duration: 8 months\n💰 Price: 400,000 UZS per month\n\n🔍 *What will you learn?*\n- Python basics\n- Data structures\n- OOP (Object-Oriented Programming)\n- Building web applications using Django framework\n- Creating bots and other exciting projects\n\n👨‍🏫 *Instructors:*\n- Madiyorbek Odilov – 4 years of experience\n- Asilbek Ismoilov – 2 years of experience\n- Boboraxim Rustamqulov – 2 years of experience\n- Fotima – 1 year of experience\n\n📌 For more details, contact the admin.\n\nIf you want to register for the course, click the button below 👇👇👇",
+      "smm" : "📚 *SMM Programming Course*\n⏳ Duration: 3 months\n💰 Price: 400,000 UZS\n\n🔍 *What will you learn?*\n- Social media strategy\n- Content creation\n- Targeting (Targeted advertising)\n- Analyzing statistics\n- Identifying the target audience\n\n👨‍🏫 *Instructors:*\n- Mohinur Muhammadova (1 year of experience)\n\n📌 For more details, contact the admin.\n\nIf you want to register for the course, click the button below 👇",
       "name": "<b>Enter your name</b> ✍",
       "check_name": "<b>Please enter your correct name ❗️</b>",
       "surname": "<b>Enter your surname</b> ✍",
       "check_surname": "<b>Please enter your correct surname ❗️</b>",
       "phone": "☎️<b>Enter your phone number</b> ✍",
       "check_phone": "<b>Please enter your correct phone number ❗️</b>",
-      "again": "Re-register\n<b>Enter your name</b> ✍",
+      "again": "Re-register \nclick the button below 👇👇👇",
       "text_admin" : "User:",
       "text_m" : "message",
-      "text_answer" : "Write your answer. Your answer will be sent to the user."
+      "text_answer" : "Write your answer. Your answer will be sent to the user.",
+      "register_text" : "You have successfully registered 🎉, the admin will contact you soon ✅\n<b>Menu</b>",
+      "admin_answer" : "Wait for the admin's response !"
+
     },
 
 
@@ -98,7 +104,7 @@
         "tel" : "Отправить номер телефона ☎️",
         "tel_text" : "Введите ваш номер телефона ✍"
       },
-      "about_us": "🏢 <b>О нас</b>\n\nSifatedu – это ведущий образовательный центр, предоставляющий обучение по программированию и информационным технологиям. Наша цель – предоставить вам глубокие знания и навыки в самых последних технологиях и языках программирования.\n\n🌐 <b>Что мы предлагаем:</b>\n- Курсы по программированию на Python\n- Django и другие веб-разработки\n- Анализ данных и Data Science\n- Курсы по повышению квалификации в IT\n- Международные сертификаты\n\n👨‍🏫 <b>Наши наставники:</b>\n- Muslimbek Baratov – 5 лет опыта\n- Madiyorbek Odilov – 4 года опыта\n- Asilbek Ismoilov – 2 года опыта\n- Boboraxim Rustamqulov – 2 года опыта\n- Fotima – 1 год опыта\n\n🔗 <b>Связаться с нами:</b>\n📞 Телефон: +998 88 378 08 08\n📞 Телефон: +998 99 750 17 17\n\nМы с нетерпением <b>ждем</b>, чтобы познакомить вас с нашими образовательными программами и помочь в вашем профессиональном развитии!",
+      "about_us": "🏢 <b>О нас</b>\n\nSifatedu – это ведущий образовательный центр, предоставляющий обучение по программированию и информационным технологиям. Наша цель – предоставить вам глубокие знания и навыки в самых последних технологиях и языках программирования.\n\n🌐 <b>Что мы предлагаем:</b>\n- Курсы по программированию на Python\n- Django и другие веб-разработки\n- Анализ данных и Data Science\n- Курсы по повышению квалификации в IT\n- Международные сертификаты\n\n👨‍🏫 <b>Наши наставники:</b>\n- Madiyorbek Odilov – 4 года опыта\n- Asilbek Ismoilov – 2 года опыта\n- Boboraxim Rustamqulov – 2 года опыта\n- Fotima – 1 год опыта\n\n🔗 <b>Связаться с нами:</b>\n📞 Телефон: +998 88 378 08 08\n📞 Телефон: +998 99 750 17 17\n\nМы с нетерпением <b>ждем</b>, чтобы познакомить вас с нашими образовательными программами и помочь в вашем профессиональном развитии!",
       "location": "📌 <b>Наш адрес:</b> Sifat education Улица Алока, Навои, Кармана, Навоийская область, Узбекистан. Наш офис расположен в месте, указанном на карте ниже.",
       "help" : "🔥 Команды \nДля использования бота ... \n /about - О боте \n\nЕсли вы хотите связаться с администратором, выберите кнопку \"Вопросы❓ и Предложения 📝\" в меню!",
       "about" : "Sifatedu bot - ваш помощник для быстрого и легкого получения информации о Sifat Образовательном Центре и регистрации! Этот бот удобен, предоставляет информацию о курсах и надежно сохраняет все данные.",
@@ -107,7 +113,7 @@
         "help" : "Помощь",  
         "about" : "О нас"
       },
-      "python" : "📚 *Курс программирования на Python*\n⏳ Продолжительность: 8 месяцев\n💰 Цена: 400,000 UZS в месяц\n\n🔍 *Что вы изучите?*\n- Основы Python\n- Структуры данных\n- ООП (Объектно-Ориентированное Программирование)\n- Разработка веб-приложений с использованием Django\n- Создание ботов и другие увлекательные проекты\n\n👨‍🏫 *Преподаватели:*\n- Муслимбек Баратов – 5 лет опыта\n- Мадийорбек Одилов – 4 года опыта\n- Асилбек Исмоилов – 2 года опыта\n- Боборахим Рустамкулов – 2 года опыта\n- Фотима – 1 год опыта\n\n📌 Для получения подробной информации свяжитесь с администратором.\n\nЕсли вы хотите зарегистрироваться на курс, нажмите на кнопку ниже 👇👇👇",
+      "python" : "📚 *Курс программирования на Python*\n⏳ Продолжительность: 8 месяцев\n💰 Цена: 400,000 UZS в месяц\n\n🔍 *Что вы изучите?*\n- Основы Python\n- Структуры данных\n- ООП (Объектно-Ориентированное Программирование)\n- Разработка веб-приложений с использованием Django\n- Создание ботов и другие увлекательные проекты\n\n👨‍🏫 *Преподаватели:*\n- Муслимбек Баратов – 5 лет опыта\n- Мадийорбек Одилов – 4 года опыта\n- Асилбек Исмоилов – 2 года опыта\n- Боборахим Рустамкулов – 2 года опыта\n- Фотима – 1 год опыта\n\n📌 Для получения подробной информации свяжитесь с администратором.\n\nЕсли вы хотите зарегистрироваться на курс, нажмите на кнопку ниже 👇",
       "smm" : "📚 *Курс SMM-программирования*\n⏳ Продолжительность: 3 месяца\n💰 Цена: 400,000 UZS\n\n🔍 *Что вы изучите?*\n- Стратегия в социальных сетях\n- Создание контента\n- Таргетинг (Целевая реклама)\n- Анализ статистики\n- Определение целевой аудитории\n\n👨‍🏫 *Преподаватель:*\n- Мохинур Мухаммадова (1 год опыта)\n\n📌 Для получения подробной информации свяжитесь с администратором.\n\nЕсли вы хотите зарегистрироваться на курс, нажмите на кнопку ниже 👇👇👇",
       "name": "<b>Введите ваше имя</b> ✍",
       "check_name": "<b>Пожалуйста, введите ваше правильное имя ❗️</b>",
@@ -115,15 +121,15 @@
       "check_surname": "<b>Пожалуйста, введите вашу правильную фамилию ❗️</b>",
       "phone": "☎️<b>Введите ваш номер телефона</b> ✍",
       "check_phone": "<b>Пожалуйста, введите ваш правильный номер телефона ❗️</b>",
-      "again": "Зарегистрироваться\n<b>Введите ваше имя</b> ✍",
+      "again": "Зарегистрироваться\nнажмите кнопку ниже 👇👇👇",
       "text_admin" : "Пользователь:",
       "text_m" : "сообщение",
-      "text_answer" : "Напишите ваш ответ. Ваш ответ будет отправлен пользователю."
+      "text_answer" : "Напишите ваш ответ. Ваш ответ будет отправлен пользователю.",
+      "register_text" : "Вы успешно зарегистрировались 🎉, администратор скоро с вами свяжется ✅\n<b>Меню</b>",
+      "admin_answer" : "Ожидайте ответа администратора !"
+
+
     },
-
-
-
-
 
     "kr": {
       "selected_language": "Сиз ўзбек тилини танладингиз 🇺🇿",
@@ -146,7 +152,7 @@
         "help" : "Ёрдам",
         "about" : "Биз ҳақимизда"
       },
-      "python": "📚 *Python Дастурлаш Курси*\n⏳ Давомийлиги: 8 ой\n💰 Нарх: 400,000 UZS ойига\n\n🔍 *Нималарни ўрганасиз?*\n- Python асослари\n- Маълумотлар тузилмалари\n- OOP (Object-Oriented Programming)\n- Django framework ёрдамида web дастурлар яратиш\n- Ботлар яратиш ва бошқа қизиқарли лойиҳалар\n\n👨‍🏫 *Ментораллар:*\n- Муслимбек Баратов – 5 йиллик тажриба\n- Мадийорбек Одилов – 4 йиллик тажриба\n- Асилбек Исмоилов – 2 йиллик тажриба\n- Боборахим Рустамқулов – 2 йиллик тажриба\n- Фотима – 1 йиллик тажриба\n\n📌 Батафсил маълумот учун админ билан боғланинг.\n\nАгар курсга рўйхатдан ўтмоқчи бўлсангиз пастдаги тугмани босинг 👇👇👇",
+      "python": "📚 *Python Дастурлаш Курси*\n⏳ Давомийлиги: 8 ой\n💰 Нарх: 400,000 UZS ойига\n\n🔍 *Нималарни ўрганасиз?*\n- Python асослари\n- Маълумотлар тузилмалари\n- OOP (Object-Oriented Programming)\n- Django framework ёрдамида web дастурлар яратиш\n- Ботлар яратиш ва бошқа қизиқарли лойиҳалар\n\n👨‍🏫 *Ментораллар:*\n- Муслимбек Баратов – 5 йиллик тажриба\n- Мадийорбек Одилов – 4 йиллик тажриба\n- Асилбек Исмоилов – 2 йиллик тажриба\n- Боборахим Рустамқулов – 2 йиллик тажриба\n- Фотима – 1 йиллик тажриба\n\n📌 Батафсил маълумот учун админ билан боғланинг.\n\nАгар курсга рўйхатдан ўтмоқчи бўлсангиз пастдаги тугмани босинг 👇",
       "smm" : "📚 *SMM Дастурлаш Курси*\n⏳ Давомийлиги: 3 ой\n💰 Нарх: 400,000 UZS\n\n🔍 *Нималарни ўрганасиз?*\n- Ижтимоий тармоқлар стратегияси\n- Контент яратиш\n- Таргетинг (Мақсадли реклама)\n- Статистикани таҳлил қилиш\n- Мақсадли аудиторияни аниқлаш\n\n👨‍🏫 *Ментораллар:*\n- Моҳинур Муҳаммадова (1 йиллик тажриба)\n\n📌 Батафсил маълумот учун админ билан боғланинг.\n\nАгар курсга рўйхатдан ўтмоқчи бўлсангиз, пастдаги тугмани босинг 👇👇👇"
     }
 }

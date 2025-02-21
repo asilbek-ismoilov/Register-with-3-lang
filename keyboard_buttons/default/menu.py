@@ -56,11 +56,3 @@ def back_button(language):
     )
 
     return back_button
-
-menu_button = ReplyKeyboardMarkup(
-    keyboard=[
-        [KeyboardButton(text="Biz haqimizda 👥"),KeyboardButton(text="Manzilimiz 📍")],
-        [KeyboardButton(text="Kurslar 📚"), KeyboardButton(text="Savol❓ va Takliflar 📝")]
-    ],
-    resize_keyboard=True,
-)
